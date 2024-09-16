@@ -7,4 +7,14 @@
 .title {
     color: purple;
 }
+
+#logout-form {
+    display: inline;
+  }
+
+#logout-form button {
+padding: 0;
+margin: 0;
+}
+
   

@@ -1,6 +1,12 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+
+
+
+
+
+
 <h1>Local Library Home</h1>
 
 <p>Welcome to <em>LocalLibrary</em>, a very basic Django website developed as a <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Tutorial_local_library_website">tutorial example</a> on the Mozilla Developer Network.</p>
@@ -28,5 +34,127 @@
 
 
 <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>test</th>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+                <th>Header 4</th>
+                <th>Header 5</th>
+                <th>Header 6</th>
+                <th>Header 7</th>
+                <th>Header 8</th>
+                <th>Header 9</th>
+                <th>Header 10</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Row 1</th>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+                <td>Cell 6</td>
+                <td>Cell 7</td>
+                <td>Cell 8</td>
+                <td>Cell 9</td>
+                <td>Cell 10</td>
+            </tr>
+            <tr>
+                <th>Row 2</th>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+                <td>Cell 6</td>
+                <td>Cell 7</td>
+                <td>Cell 8</td>
+                <td>Cell 9</td>
+                <td>Cell 10</td>
+            </tr>
+            <tr>
+                <th>Row 1</th>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+                <td>Cell 6</td>
+                <td>Cell 7</td>
+                <td>Cell 8</td>
+                <td>Cell 9</td>
+                <td>Cell 10</td>
+            </tr>
+            <tr>
+                <th>Row 3</th>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+                <td>Cell 6</td>
+                <td>Cell 7</td>
+                <td>Cell 8</td>
+                <td>Cell 9</td>
+                <td>Cell 10</td>
+            </tr>
+            <tr>
+                <th>Row 4</th>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+                <td>Cell 6</td>
+                <td>Cell 7</td>
+                <td>Cell 8</td>
+                <td>Cell 9</td>
+                <td>Cell 10</td>
+            </tr>
+            <!-- Ajoutez d'autres lignes ici -->
+        </tbody>
+    </table>
+</div>
+
+<div class="container-fluid" style="background-color: lightblue; width: 500px; height:100px"}>
+    <div class="row">
+        <div class="col-2">A</div>
+        <div class="col-2">B</div>
+        <div class="col-2">C</div>
+        <div class="col-2">D</div>
+        <div class="col-2">E</div>
+    </div>
+    <div class="row ">
+        <div class="col-2"> 
+            <div class="row"><div class="col">A1</div></div>
+            <div class="row"><div class="col">A2</div></div>
+        </div>
+        <div class="col-8" style="overflow: scroll;">
+            <div class="row">
+                <div class="col">B1</div>
+                <div class="col">C1</div>
+                <div class="col">D1</div>
+                <div class="col">E1</div>
+            </div>
+            <div class="row">
+                <div class="col">B2</div>
+                <div class="col">C2</div>
+                <div class="col">D2</div>
+                <div class="col">E2</div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+</div>
+   
 
 {% endblock %}

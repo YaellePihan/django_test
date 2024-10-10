@@ -35,6 +35,17 @@
 
 <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
 
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<img id="drag1" src="{% static 'images/logo_atlasea_Tracker-removebg-preview.png' %}" alt="My image" draggable="true" ondragstart="drag(event)">
+
+
+
+<div class="container">
+    <div id="dragTable" class="panel panel-default" style="cursor:move">
+      <div class="panel-heading">Table</div>
+      <div class="panel-body">
 <div class="table-container">
     <table>
         <thead>
@@ -122,39 +133,96 @@
         </tbody>
     </table>
 </div>
+</div>
+</div>
+</div>
 
-<div class="container-fluid" style="background-color: lightblue; width: 500px; height:100px"}>
-    <div class="row">
-        <div class="col-2">A</div>
-        <div class="col-2">B</div>
-        <div class="col-2">C</div>
-        <div class="col-2">D</div>
-        <div class="col-2">E</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Table</div>
+    <div class="panel-body"></div></div>
+<!-- <div class="container-fluid" style="background-color: lightblue; width: 500px; height:100px"}> -->
+    <!-- <div class="row">
+        <div class="col" style="width: 50px">A</div>
+        <div class="col" style="width: 50px">B</div>
+        <div class="col" style="width: 50px">C</div>
+        <div class="col" style="width: 50px">D</div>
+        <div class="col" style="width: 50px">E</div>
     </div>
     <div class="row ">
-        <div class="col-2"> 
-            <div class="row"><div class="col">A1</div></div>
-            <div class="row"><div class="col">A2</div></div>
+        <div class="col"> 
+            <div class="row"><div class="col" style="width: 50px">A1</div></div>
+            <div class="row"><div class="col" style="width: 50px">A2</div></div>
         </div>
-        <div class="col-8" style="overflow: scroll;">
+        <div class="col" style="overflow: scroll;">
             <div class="row">
-                <div class="col">B1</div>
-                <div class="col">C1</div>
-                <div class="col">D1</div>
-                <div class="col">E1</div>
+                <div class="col" style="width: 50px">B1</div>
+                <div class="col" style="width: 50px">C1</div>
+                <div class="col" style="width: 50px">D1</div>
+                <div class="col" style="width: 50px">E1</div>
+                <div class="col" style="width: 50px">E1</div>
+                <div class="col" style="width: 50px">E1</div>
+                <div class="col" style="width: 50px">E1</div>
             </div>
             <div class="row">
-                <div class="col">B2</div>
-                <div class="col">C2</div>
-                <div class="col">D2</div>
-                <div class="col">E2</div>
+                <div class="col" style="width: 50px">B2</div>
+                <div class="col" style="width: 50px">C2</div>
+                <div class="col" style="width: 50px">D2</div>
+                <div class="col" style="width: 50px">E2</div>
+                <div class="col" style="width: 50px">E1</div>
+                <div class="col" style="width: 50px">E1</div>
+                <div class="col" style="width: 50px">E1</div>
             </div>
         </div>
     </div>
 
     
 </div>
-</div>
+</div> -->
+<script>
+    function allowDrop(ev) {
+      console.log("allow drop")
+      ev.preventDefault();
+    }
+    
+    function drag(ev) {
+      console.log("drag")
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+    
+    function drop(ev) {
+      console.log(drop)
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      ev.target.appendChild(document.getElementById(data));
+    }
+
+    const table = document.getElementById('dragTable');
+
+    table.addEventListener('dragstart', function (event) {
+    // Stockez le contenu HTML de la table dans les données transférées
+    event.dataTransfer.setData('text/html', table.outerHTML);
+    });
+
+    table.addEventListener('dragend', function (event) {
+  // Lorsque l'utilisateur relâche l'élément, ouvrez un nouvel onglet
+  const newTab = window.open('', '_blank');
+
+  // Ajoutez du contenu HTML dans le nouvel onglet, ici la table
+  if (newTab) {
+    const tableHTML = event.dataTransfer.getData('text/html');
+    console.log("tableHTML", tableHTML)
+    newTab.document.write(`
+      <html>
+        <head>
+          <title>Table</title>
+        </head>
+        <body>${tableHTML}</body>
+      </html>
+    `);
+    newTab.document.close();
+  }
+});
+</script>
    
 
 {% endblock %}
